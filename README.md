@@ -2,6 +2,9 @@
 
 > A Chrome extension to share the current tab to a webhook including the URL, the selected text, a screenshot, and more!
 
+[![Test](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml)
+[![Release](https://github.com/jpoehnelt/parteux/actions/workflows/release.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/release.yml)
+
 Use this extension to share to your favorite chat, issue tracker, or any other service that supports webhooks.
 
 ## Extension Usage
