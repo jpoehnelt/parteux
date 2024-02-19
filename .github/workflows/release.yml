@@ -1,0 +1,30 @@
+name: Release
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npm ci
+      - run: npm run build
+      - run: biome ci
+      - run: npm test
+      - name: Release
+        uses: cycjimmy/semantic-release-action@v4
+        with:
+          extra_plugins: |
+            "@semantic-release/commit-analyzer"
+            "@semantic-release/release-notes-generator"
+            "@semantic-release/exec"
+            "@semantic-release/git
+            "@semantic-release/github
+        env:
+          CLIENT_ID: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
+          CLIENT_SECRET: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
+          REFRESH_TOKEN: ${{ secrets.CHROME_WEBSTORE_REFRESH_TOKEN }}
+          EXTENSION_ID: ${{ vars.CHROME_WEBSTORE_EXTENSION_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

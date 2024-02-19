@@ -1,0 +1,7 @@
+{
+  "liveServer.settings.root": "/dist",
+  "cSpell.words": ["Parteux"],
+  "[javascript]": {
+    "editor.defaultFormatter": "biomejs.biome"
+  }
+}

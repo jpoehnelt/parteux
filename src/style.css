@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input[type="text"],
+input[type="url"] {
+  @apply input input-bordered;
+}
+
+textarea {
+  @apply textarea textarea-bordered textarea-xs;
+}
+
+pre {
+  @apply p-4 bg-neutral-100 rounded-lg font-mono text-xs overflow-auto;
+}
+
+h1 {
+  @apply text-3xl font-bold;
+}
+h2 {
+  @apply text-2xl font-bold;
+}
+
+.prose {
+  max-width: 85ch;
+}
