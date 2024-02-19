@@ -25,3 +25,11 @@ h2 {
 .prose {
   max-width: 85ch;
 }
+
+.badges {
+  @apply flex flex-wrap gap-2;
+}
+
+.badges a img {
+  @apply m-0;
+}
