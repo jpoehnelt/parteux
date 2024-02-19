@@ -1,7 +1,7 @@
 {
   "name": "parteux",
   "description": "Share the current page, selected text, a screenshot and more to a webhook.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "license": "AGPL-3.0-or-later",
   "repository": {
