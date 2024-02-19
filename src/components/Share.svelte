@@ -133,6 +133,20 @@
           >{response.status}</code
         >
       </p>
+      <div class="badges">
+        <a href="https://liberapay.com/jpoehnelt/donate"
+          ><img
+            alt="Donate using Liberapay"
+            src="https://liberapay.com/assets/widgets/donate.svg"
+          /></a
+        >
+        <a href="https://patreon.com/jpoehnelt"
+          ><img
+            alt="Patreon"
+            src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"
+          /></a
+        >
+      </div>
     {/if}
     {#if state === "sent"}
       <div class="modal-action">

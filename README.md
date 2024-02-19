@@ -13,6 +13,8 @@
         <img src="https://github.com/jpoehnelt/parteux/actions/workflows/release.yml/badge.svg" alt="Release">
     </a>
     <a href="https://github.com/jpoehnelt/parteux"><img src="https://img.shields.io/github/license/jpoehnelt/parteux" alt="GitHub License"></a>
+    <a href="https://liberapay.com/jpoehnelt/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
+    <a href="https://patreon.com/jpoehnelt"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"></a>
 </div>
 
 ## Use cases

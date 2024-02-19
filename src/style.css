@@ -31,5 +31,5 @@ h2 {
 }
 
 .badges a img {
-  @apply m-0;
+  @apply m-0 max-h-5 rounded shadow-lg;
 }
