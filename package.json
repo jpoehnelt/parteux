@@ -11,8 +11,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "fix": "biome check --apply .",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
+    "biome-fix": "biome check --apply .",
+    "biome-ci": "biome ci",
+    "svelte-check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "tsc --noEmit"
   },
   "devDependencies": {
