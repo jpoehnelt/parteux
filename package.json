@@ -12,7 +12,7 @@
     "dev": "vite",
     "build": "vite build",
     "biome-fix": "biome check --apply .",
-    "biome-ci": "biome ci",
+    "biome-ci": "biome ci .",
     "svelte-check": "svelte-check --tsconfig ./tsconfig.json",
     "test": "tsc --noEmit"
   },
