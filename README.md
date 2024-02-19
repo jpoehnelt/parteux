@@ -2,8 +2,12 @@
 
 > A Chrome extension to share the current tab to a webhook including the URL, the selected text, a screenshot, and more!
 
-[![Test](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml)
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nbjcakldlpgbdidkhepgmlmcmlmbampa?style=flat&labelColor=3f3f3f&label=Chrome%20Web%20Store&maxAge=3600)](https://chrome.google.com/webstore/detail/parteux/nbjcakldlpgbdidkhepgmlmcmlmbampa)
+![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/nbjcakldlpgbdidkhepgmlmcmlmbampa)
+![GitHub Repo stars](https://img.shields.io/github/stars/jpoehnelt/parteux?style=flat&labelColor=3f3f3f&label=GitHub&maxAge=3600)[![Test](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml)
 [![Release](https://github.com/jpoehnelt/parteux/actions/workflows/release.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/release.yml)
+![GitHub License](https://img.shields.io/github/license/jpoehnelt/parteux)
+
 
 Use this extension to share to your favorite chat, issue tracker, or any other service that supports webhooks.
 
