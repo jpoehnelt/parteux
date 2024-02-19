@@ -1,21 +1,28 @@
 # Parteux
 
-> 🚀 Blast off with Parteux, a Chrome extension that allows you to share the current tab to a webhook! 🌟 Share the URL, the selected text, a screenshot, and more, all with just a click! Effortlessly connect with your favorite chat, issue tracker, or any other service that supports webhooks.
+> 🚀 Blast off with Parteux, a Chrome extension that allows you to share the current tab to a webhook! 🌟 Share the URL, title, selected text, a screenshot, meta tags, and more, all with just a click!
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/nbjcakldlpgbdidkhepgmlmcmlmbampa?style=flat&labelColor=3f3f3f&label=Chrome%20Web%20Store&maxAge=3600)](https://chrome.google.com/webstore/detail/parteux/nbjcakldlpgbdidkhepgmlmcmlmbampa)
-![Chrome Web Store Users](https://img.shields.io/chrome-web-store/users/nbjcakldlpgbdidkhepgmlmcmlmbampa)
-![GitHub Repo stars](https://img.shields.io/github/stars/jpoehnelt/parteux?style=flat&labelColor=3f3f3f&label=GitHub&maxAge=3600)[![Test](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/test.yml)
-[![Release](https://github.com/jpoehnelt/parteux/actions/workflows/release.yml/badge.svg)](https://github.com/jpoehnelt/parteux/actions/workflows/release.yml)
-![GitHub License](https://img.shields.io/github/license/jpoehnelt/parteux)
+<div class="badges">
+    <a href="https://chrome.google.com/webstore/detail/parteux/nbjcakldlpgbdidkhepgmlmcmlmbampa">
+        <img src="https://img.shields.io/chrome-web-store/v/nbjcakldlpgbdidkhepgmlmcmlmbampa?style=flat&amp;labelColor=3f3f3f&amp;label=Chrome%20Web%20Store&amp;maxAge=3600" alt="Chrome Web Store">
+    </a>
+    <a href="https://github.com/jpoehnelt/parteux/actions/workflows/test.yml">
+        <img src="https://github.com/jpoehnelt/parteux/actions/workflows/test.yml/badge.svg" alt="Test">
+    </a>
+    <a href="https://github.com/jpoehnelt/parteux/actions/workflows/release.yml">
+        <img src="https://github.com/jpoehnelt/parteux/actions/workflows/release.yml/badge.svg" alt="Release">
+    </a>
+    <a href="https://github.com/jpoehnelt/parteux"><img src="https://img.shields.io/github/license/jpoehnelt/parteux" alt="GitHub License"></a>
+</div>
 
 ## Use cases
 
 Use this extension to share the current tab to your favorite chat, issue tracker, or any other service that supports webhooks. Some potential use cases include:
 
-- Sharing interesting articles or websites with your team in a chat application.
-- Creating bug reports or feature requests in an issue tracker directly from the current tab.
+- Sharing interesting articles or websites with your team in a chat application. 💬
+- Creating bug reports 🐛 or feature requests in an issue tracker directly from the current tab.
 - Sending notifications or updates to a custom service or API.
-- Integrating with project management tools to automatically create tasks or tickets based on the current tab.
+- Integrating with project management tools to automatically create tasks or tickets based on the current tab. 💼
 
 The possibilities are endless! With this extension, you can easily share information from the web to any service that can receive webhooks.
 
@@ -28,15 +35,24 @@ The possibilities are endless! With this extension, you can easily share informa
 
 The webhook URL is stored in the extension's synced storage and is shared across all tabs and devices. The webhook should return a 200 status code to indicate success and accept cross-origin requests by setting the `Access-Control-Allow-Origin` header to `*`.
 
+> **Note**: The extension does not store any data or send any information to any server. The webhook URL is stored in the extension's synced storage and is only used to send the current tab's information to the specified URL that **YOU** set!
+
 ## For developers
 
-It's possible to run the extension locally in development mode.
+It's possible to run the extension locally in Chrome.
 
 ```bash
+# get the code
+git clone https://github.com/jpoehnelt/parteux.git
+cd parteux
+
+# install dependencies
 npm i
-npm run fix # lint and format
-npm run test # run tests
-npm run build -- --watch # build and watch for changes
+
+# build and watch for changes
+npm run build -- --watch 
+
+# load the extension in Chrome
 ```
 
 To load the extension in Chrome:
