@@ -6,6 +6,9 @@ plugins:
   - - "@semantic-release/exec"
     - publishCmd: "npx chrome-webstore-upload-cli upload --source dist/extension.zip"
   - - "@semantic-release/git"
+    - assets:
+        - "package.json"
+        - "package-lock.json"
   - - "@semantic-release/github"
     - assets:
         - path: "dist/extension.zip"
