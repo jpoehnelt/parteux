@@ -13,10 +13,6 @@
   let cropped = "";
   let isModalOpen = true;
 
-  let includeScreenshot = true;
-  let includeMeta = true;
-  let includeContext = true;
-
   let includes: {
     [key: string]: boolean;
   } = {
@@ -25,7 +21,8 @@
     context: true,
   };
 
-  let state: "new" | "sending" | "sent" = "new";
+  let state: "new" | "sending" | "sent" | "error" = "new";
+  let error: string | undefined;
 
   let response: Response | undefined;
 
@@ -52,15 +49,32 @@
   // Function to send data to webhook
   async function send() {
     state = "sending";
+    error = undefined;
 
-    response = await fetch(webhook.url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload, null, 2),
-    });
-    state = "sent";
+    // Send data to webhook
+    try {
+      response = await new Promise((resolve, reject) => {
+        fetch(webhook.url, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload, null, 2),
+        }).then(resolve, reject);
+
+        setTimeout(() => {
+          reject(new Error("Request timed out"));
+        }, 30 * 1000);
+      });
+      state = "sent";
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        error = e.message;
+      } else {
+        error = "An error occurred while sending the request";
+      }
+      state = "error";
+    }
   }
 
   // Function to dismiss modal
@@ -116,10 +130,34 @@
   </div>
 </div>
 
-<div class="modal" class:modal-open={state === "sending" || state == "sent"}>
+<div
+  class="modal"
+  class:modal-open={state === "sending" || state == "sent" || state == "error"}
+>
   <div class="modal-box flex flex-col gap-4 text-lg">
     {#if state === "sending"}
       <progress class="progress progress-primary h-4 w-full"></progress>
+    {/if}
+
+    {#if state === "error"}
+      <p class="text-error">
+        {error ?? "An error occurred while sending the request"}. Check the
+        network tab for more details.
+      </p>
+      <p>
+        Common issues include: invalid URL, missing CORS headers, and rate
+        limiting.
+      </p>
+      <hr />
+      <a
+        class="btn btn-primary"
+        href="https://github.com/jpoehnelt/parteux/issues/new?title={encodeURIComponent(
+          '[Fetch Error] - FILL_ME_IN'
+        )}&body={encodeURIComponent(
+          `error: \`${error ?? ''}\``
+        )}">Report an issue</a
+      >
+      <hr />
     {/if}
 
     {#if state === "sent" && response}
@@ -145,7 +183,7 @@
         >
       </div>
     {/if}
-    {#if state === "sent"}
+    {#if state === "sent" || state === "error"}
       <div class="modal-action">
         <AutoTabClose
           seconds={30}
