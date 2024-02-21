@@ -4,6 +4,7 @@ plugins:
   - "@semantic-release/commit-analyzer"
   - "@semantic-release/release-notes-generator"
   - - "@semantic-release/exec"
+    - prepareCmd: "npm ci && npm run build"
     - publishCmd: "npx chrome-webstore-upload-cli upload --source dist/extension.zip"
   - - "@semantic-release/git"
     - assets:
