@@ -6,7 +6,7 @@
   "license": "AGPL-3.0-or-later",
   "repository": {
     "type": "git",
-    "url": "https://github.com/jpoehnelt/share-to-webhook-extension.git"
+    "url": "https://github.com/jpoehnelt/parteux.git"
   },
   "scripts": {
     "dev": "vite",
