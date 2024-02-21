@@ -110,9 +110,6 @@
       on:click={() => send()}
       disabled={state !== "new" || webhook === undefined}>Send</button
     >
-    <hr />
-    <pre class="max-h-[30vh]"><code>{JSON.stringify(payload, null, 2)}</code
-      ></pre>
   </div>
   <div class="grow">
     <CropImg src={data.screenshot} bind:dataUrl={cropped} />
