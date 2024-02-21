@@ -21,8 +21,9 @@ jobs:
             "@semantic-release/commit-analyzer"
             "@semantic-release/release-notes-generator"
             "@semantic-release/exec"
-            "@semantic-release/git
-            "@semantic-release/github
+            "@semantic-release/npm"
+            "@semantic-release/git"
+            "@semantic-release/github"
         env:
           CLIENT_ID: ${{ secrets.CHROME_WEBSTORE_CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CHROME_WEBSTORE_CLIENT_SECRET }}
