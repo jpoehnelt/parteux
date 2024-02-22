@@ -3,6 +3,7 @@
   import WebhookSelect from "./WebhookSelect.svelte";
   import CropImg from "./CropImg.svelte";
   import type { Data, Webhook } from "../types";
+  import { getWebhooks, saveWebhooks } from "../storage";
 
   // Define component props
   export let data: Data;
@@ -50,7 +51,6 @@
   async function send() {
     state = "sending";
     error = undefined;
-
     // Send data to webhook
     try {
       response = await new Promise((resolve, reject) => {
@@ -67,6 +67,14 @@
         }, 30 * 1000);
       });
       state = "sent";
+
+      // sort the list of webhooks so the last used is first
+      const webhooks = await getWebhooks();
+      const index = webhooks.findIndex(
+        (w) => w.url === webhook.url && w.name === webhook.name
+      );
+      webhooks.unshift(webhooks.splice(index, 1)[0]);
+      await saveWebhooks(webhooks);
     } catch (e: unknown) {
       if (e instanceof Error) {
         error = e.message;
@@ -153,9 +161,8 @@
         class="btn btn-primary"
         href="https://github.com/jpoehnelt/parteux/issues/new?title={encodeURIComponent(
           '[Fetch Error] - FILL_ME_IN'
-        )}&body={encodeURIComponent(
-          `error: \`${error ?? ''}\``
-        )}">Report an issue</a
+        )}&body={encodeURIComponent(`error: \`${error ?? ''}\``)}"
+        >Report an issue</a
       >
       <hr />
     {/if}

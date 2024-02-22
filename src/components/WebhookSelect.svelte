@@ -1,9 +1,10 @@
 <script lang="ts">
-  import { isWebhook, type Webhook } from "../types";
+  import  type {Webhook } from "../types";
+  import {saveWebhooks, getWebhooks} from "../storage";
   import { onMount } from "svelte";
   import Add from "./svg/Add.svelte";
   import Delete from "./svg/Delete.svelte";
-  import { obfuscateUrl, isValidUrl } from "../utils";
+  import { obfuscateUrl } from "../utils";
   export let webhooks: Webhook[] = [];
 
   let addingNewWebhook = false;
@@ -21,21 +22,13 @@
 
   async function onChange(webhooks: Webhook[]) {
     if (webhooks.length) {
-      saveWebhooks();
+      saveWebhooks(webhooks);
     }
   }
 
-  async function saveWebhooks() {
-    await chrome.storage.sync.set({
-      webhooks: webhooks.filter(({ url }) => isValidUrl(url)),
-    });
-  }
-
-  onMount(() => {
-    chrome.storage.sync.get("webhooks", (items) => {
-      webhooks = items.webhooks.filter(isWebhook);
+  onMount(async () => {
+      webhooks = await getWebhooks();
       webhook = webhooks[0] ?? { ...initWebhook };
-    });
   });
 
   function save() {
@@ -54,7 +47,7 @@
       ({ url, name }) => url !== webhook.url && name !== webhook.name
     );
     webhook = webhooks[0];
-    saveWebhooks();
+    saveWebhooks(webhooks);
   }
 </script>
 
