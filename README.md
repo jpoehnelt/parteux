@@ -17,6 +17,8 @@
     <a href="https://patreon.com/jpoehnelt"><img alt="Patreon" src="https://img.shields.io/badge/Patreon-F96854?style=for-the-badge&logo=patreon&logoColor=white"></a>
 </div>
 
+![Parteux](https://parteux.com/demo.gif)
+
 ## Use cases
 
 Use this extension to share the current tab to your favorite chat, issue tracker, or any other service that supports webhooks. Some potential use cases include:
